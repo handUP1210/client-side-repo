@@ -270,11 +270,11 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1A-aA-B4L">
-                                                    <rect key="frame" x="7" y="75" width="376" height="269"/>
+                                                    <rect key="frame" x="7" y="75" width="376" height="67.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" id="mgK-NP-pVL"/>
                                                     </constraints>
-                                                    <mutableString key="text">윗분에 답변처럼 기획자가 하는 일은 굉장히 범위가 넓습니다... 실제 업무에 대해서는 위에서 잘 설명해 주었기에 저는 현업에서 작업을 할 때 자주 사용하는 툴들에 대해서 초점을 맞춰서 설명해 드리겠습니다.  1. 와이어프레임 제작- figma  --------------------- DynamicHeight를 위한 부분입니다!! 아무 말이나 적습니다 =DynamicHeight를 위한 부분입니다!! 아무 말이나 적습니다 =DynamicHeight를 위한 부분입니다!! 아무 말이나 적습니다 =DynamicHeight를 위한 부분입니다!! 아무 말이나 적습니다 =DynamicHeight를 위한 부분입니다!! 아무 말이나 적습니다 =DynamicHeight를 위한 부분입니다!! 아무 말이나 적습니다 =DynamicHeight를 위한 부분입니다!! 아무 말이나 적습니다 =DynamicHeight를 위한 부분입니다!! 아무 말이나 적습니다 =DynamicHeight를 위한 부분입니다!! 아무 말이나 적습니다 =DynamicHeight를 위한 부분입니다!! 아무 말이나 적습니다 =DynamicHeight를 위한 부분입니다!! 아무 말이나 적습니다 =DynamicHeight를 위한 부분입니다!! 아무 말이나 적습니다 =</mutableString>
+                                                    <string key="text">윗분에 답변처럼 기획자가 하는 일은 굉장히 범위가 넓습니다... 실제 업무에 대해서는 위에서 잘 설명해 주었기에 저는 현업에서 작업을 할 때 자주 사용하는 툴들에 대해서 초점을 맞춰서 설명해 드리겠습니다.  1. 와이어프레임 제작- figma  </string>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
