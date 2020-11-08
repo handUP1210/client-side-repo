@@ -7,13 +7,13 @@
 ## 2. 프론트 역할 수행
 ## 3. 개발환경
 ### * 프론트
-ㄱ. ios
-ㄴ. xCode(12.1)
-ㄷ. swift(5.1.1)
-ㄹ. cocoaPods(1.6.1)
-ㅁ. Naver Mobile Map API Ver 2.0
+#### ㄱ. ios
+#### ㄴ. xCode(12.1)
+#### ㄷ. swift(5.1.1)
+#### ㄹ. cocoaPods(1.6.1)
+#### ㅁ. Naver Mobile Map API Ver 2.0
 ### * 백엔드
-ㄱ. AWS Cloouding Service
-ㄴ. Firebase
-ㄷ. Java
-ㄹ. springBoot
+#### ㄱ. AWS Cloouding Service
+#### ㄴ. Firebase
+#### ㄷ. Java
+#### ㄹ. springBoot
