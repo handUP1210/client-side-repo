@@ -41,6 +41,8 @@ extension UIViewController{
     
     func navigtionBarIsHidden(VC: UIViewController, bool: Bool){
         VC.navigationController?.navigationBar.isHidden = true
+        
+    
     }
     
     func hexStringToUIColor (hex:String) -> UIColor {

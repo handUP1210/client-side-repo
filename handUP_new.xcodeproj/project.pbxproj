@@ -22,6 +22,7 @@
 		6345E8D72550021E0096098A /* StarRatingStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6345E8D42550021E0096098A /* StarRatingStackView.xib */; };
 		6345E8D82550021E0096098A /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345E8D52550021E0096098A /* StarRatingView.swift */; };
 		6345E8D92550021E0096098A /* StarRatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345E8D62550021E0096098A /* StarRatingStackView.swift */; };
+		6345E911255D16910096098A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6345E910255D16910096098A /* GoogleService-Info.plist */; };
 		634814B1251D80100089D101 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634814B0251D80100089D101 /* UserInfo.swift */; };
 		637CB624253A001400BDAECD /* MainIncumbentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637CB623253A001400BDAECD /* MainIncumbentCollectionViewCell.swift */; };
 		637CB651253EDB7100BDAECD /* MapDataProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637CB650253EDB6F00BDAECD /* MapDataProcessing.swift */; };
@@ -155,6 +156,7 @@
 		6345E8D42550021E0096098A /* StarRatingStackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StarRatingStackView.xib; sourceTree = "<group>"; };
 		6345E8D52550021E0096098A /* StarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		6345E8D62550021E0096098A /* StarRatingStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingStackView.swift; sourceTree = "<group>"; };
+		6345E910255D16910096098A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		634814B0251D80100089D101 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		637CB623253A001400BDAECD /* MainIncumbentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainIncumbentCollectionViewCell.swift; sourceTree = "<group>"; };
 		637CB650253EDB6F00BDAECD /* MapDataProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataProcessing.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		638DE46D2518D70100332361 /* MyqaDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyqaDetail.storyboard; sourceTree = "<group>"; };
 		638DE4722518D72C00332361 /* MyqaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyqaDetailViewController.swift; sourceTree = "<group>"; };
 		638DE4772518DCAC00332361 /* MyqaDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyqaDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		63AFDAEB2562DCAA00BD33BF /* handUP_new.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = handUP_new.entitlements; sourceTree = "<group>"; };
 		63B806652547246900069973 /* IncumbentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncumbentDetailViewController.swift; sourceTree = "<group>"; };
 		63B8066A2547249E00069973 /* IncumbentDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IncumbentDetail.storyboard; sourceTree = "<group>"; };
 		63B8066F254724ED00069973 /* QuestionIncumbent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QuestionIncumbent.storyboard; sourceTree = "<group>"; };
@@ -426,6 +429,7 @@
 		63D4025824FDCD2A0017F9A8 /* handUP_new */ = {
 			isa = PBXGroup;
 			children = (
+				63AFDAEB2562DCAA00BD33BF /* handUP_new.entitlements */,
 				6345E8D3255001FF0096098A /* StarRatingView */,
 				630B85FB253757800044E3DE /* Test */,
 				634814AF251D7FD50089D101 /* Data */,
@@ -436,6 +440,7 @@
 				63D4026524FDCD2B0017F9A8 /* Assets.xcassets */,
 				63D4026724FDCD2B0017F9A8 /* LaunchScreen.storyboard */,
 				63D4026A24FDCD2B0017F9A8 /* Info.plist */,
+				6345E910255D16910096098A /* GoogleService-Info.plist */,
 				63D4026224FDCD2A0017F9A8 /* handUP_new.xcdatamodeld */,
 				638799AF250CB15F00A073D4 /* Complete_Diretory */,
 				638799942508B4EE00A073D4 /* QuestionDetail_Directory */,
@@ -727,6 +732,7 @@
 				638799B92510F9A200A073D4 /* ProfileField.storyboard in Resources */,
 				63D4026124FDCD2A0017F9A8 /* Main.storyboard in Resources */,
 				630B85FD253757A50044E3DE /* WebViewTest.storyboard in Resources */,
+				6345E911255D16910096098A /* GoogleService-Info.plist in Resources */,
 				63B8066B2547249E00069973 /* IncumbentDetail.storyboard in Resources */,
 				6387996E2501CB9A00A073D4 /* MainAnswer.storyboard in Resources */,
 				63D402A224FDE3770017F9A8 /* LogIn.storyboard in Resources */,
@@ -1103,6 +1109,7 @@
 			baseConfigurationReference = EB2844A2181B99422708B01D /* Pods-handUP_new.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = handUP_new/handUP_new.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48647M79X3;
 				INFOPLIST_FILE = handUP_new/Info.plist;
@@ -1122,6 +1129,7 @@
 			baseConfigurationReference = B3787E4C4387B6019422615B /* Pods-handUP_new.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = handUP_new/handUP_new.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48647M79X3;
 				INFOPLIST_FILE = handUP_new/Info.plist;
