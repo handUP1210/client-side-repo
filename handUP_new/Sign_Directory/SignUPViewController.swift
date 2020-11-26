@@ -22,8 +22,12 @@
 import UIKit
 import Alamofire
 import Firebase
+import FirebaseCore
+import FirebaseFirestore
 
 class SignUPViewController: UIViewController {
+    
+    var db : Firestore!
     
     @IBAction func touchUpToBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -57,6 +61,7 @@ class SignUPViewController: UIViewController {
         textFieldToEmail.resignFirstResponder()
         textFieldToName.resignFirstResponder()
         textFtextFieldToPassWord.resignFirstResponder()
+        
     }
     
     //signUpButton Height = 50
@@ -133,8 +138,13 @@ extension SignUPViewController{
         
         if isTextFieldValid{
             Auth.auth().createUser(withEmail: email! , password: password!) { authResult, error in
+                // 회원가입하고 가입한 user 정보로 userDefalults저장하기
+                DispatchQueue.global().async {
+                    self.setUserInfo(email: email, name: name, gender: nil, classes: nil, location: nil, anonymity: false)
+                }
                 self.performSegue(withIdentifier: "segueForMainView", sender: nil)
                 print(" signIn Complete & value Checking ----> \(authResult)")
+                
             }
         }
         else{

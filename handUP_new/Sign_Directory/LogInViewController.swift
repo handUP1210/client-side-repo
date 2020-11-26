@@ -27,7 +27,7 @@ class LogInViewController: UIViewController {
     
     @IBAction func touchUpLoginButton(_ sender: Any) {
         logInToUser(email: textFieldToEmail.text, password: textFieldToPassWord.text)
-      
+        
     }
     
     @IBAction func touchUpToViewController(_ sender: Any) {
@@ -52,7 +52,7 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -80,14 +80,15 @@ extension LogInViewController{
         
         if isTextFieldValid{
             Auth.auth().signIn(withEmail: email!, password: password!) { [weak self] authResult, error in
-              guard let strongSelf = self else { return }
-                print(" value Checking ----> \(String(describing: authResult))")
+                guard let strongSelf = self else { return }
+                //                 회원가입하고 가입한 user 정보로 userDefalults저장하기
+                DispatchQueue.global().async {
+                    self!.setUserInfo(email: email, name: nil, gender: nil, classes: nil, location: nil, anonymity: false)
+                }
                 self?.performSegue(withIdentifier: "segueForMainView", sender: nil)
             }
         }
         else{
-            print(" value Checking ----> \(isTextFieldValid)")
-
             let alert = UIAlertController(title: "확인", message: "아이디 및 비밀번호 입력란을 확인해주세요 :)", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -97,11 +98,11 @@ extension LogInViewController{
 //---------------------divide-------------------------------//
 
 class LogInNavigationViewController: UINavigationController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -111,15 +112,15 @@ class LogInNavigationViewController: UINavigationController {
         self.navigationBar.shadowImage = UIImage()
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
