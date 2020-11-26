@@ -26,16 +26,16 @@ class SignUPInitViewController: UIViewController {
     }
     
     @IBAction func touchUpSignEmail(_ sender: Any) {
-        //segueIdentifier = "segueForSignUP"
+        inputDataCheckingOfEmail()
     }
     
     @IBAction func touchUpViewController(_ sender: Any) {
         textFieldResignResponder(textField: self.textFieldToEmail)
+        
     }
     
     @IBAction func touchUpToBackButton(_ sender: Any) {
         performSegue(withIdentifier: "unwindForInitViewController", sender: nil)
-        
     }
     
     
@@ -71,23 +71,25 @@ class SignUPInitViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //        if segue.identifier == "segueForSignUP"{
-        //            let destination = segue.destination as? SignUPViewController
-        //            guard let text = self.textFieldToEmail.text else {
-        //                return print("please write Email")
-        //            }
-        //            destination?.textFieldToEmail.text = text
-        //        }
+        if segue.identifier == "segueForSignUP"{
+            let destination = segue.destination as? SignUPViewController
+            guard let text = self.textFieldToEmail.text else {
+                return print("please write Email")
+            }
+            destination?.email = text
+        }
     }
     
     
 }
 
+//-------------------------signUP Extension------------------------
+
 extension SignUPInitViewController{
     func adjustShadowEffect(view:UIView){
         let shadowView  = UIView()
         let containerView = view
-//        shadowView.addSubview(containerView)
+        //        shadowView.addSubview(containerView)
         
         
         containerView.layer.shadowColor = UIColor.red.cgColor
@@ -99,6 +101,18 @@ extension SignUPInitViewController{
         containerView.layer.rasterizationScale = UIScreen.main.scale
         
         print(" value Checking ----> \(containerView)")
+    }
+    
+    func inputDataCheckingOfEmail(){
+        if textFieldToEmail.text != ""{
+            performSegue(withIdentifier: "segueForSignUP", sender: nil)
+        }
+        else{
+            let alert = UIAlertController(title: "확인", message: "회원가입을 할 이메일을 입력해주세 :)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
 }
 

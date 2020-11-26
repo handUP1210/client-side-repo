@@ -28,6 +28,8 @@ import FirebaseFirestore
 class SignUPViewController: UIViewController {
     
     var db : Firestore!
+    var email : String?
+    
     
     @IBAction func touchUpToBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -71,8 +73,7 @@ class SignUPViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        receivDataInit()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -154,5 +155,9 @@ extension SignUPViewController{
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func receivDataInit(){
+        textFieldToEmail.text = email!
     }
 }

@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         var viewControllerIdentifier:String?
         var authCurrentUserInfo = Auth.auth().currentUser
         
-        if authCurrentUserInfo != nil{
+        if authCurrentUserInfo == nil{
             print(" value Checking ----> \(authCurrentUserInfo?.uid)")
             print(" value Checking ----> \(authCurrentUserInfo?.email)")
             storyboardName = "Main"

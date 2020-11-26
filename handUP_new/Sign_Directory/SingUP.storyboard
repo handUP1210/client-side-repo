@@ -51,7 +51,6 @@
                                 <connections>
                                     <action selector="buttonToSignUpEmail:" destination="qD1-jH-kZg" eventType="touchUpInside" id="9iP-gd-LUi"/>
                                     <action selector="touchUpSignEmail:" destination="qD1-jH-kZg" eventType="touchUpInside" id="VbY-xF-HMs"/>
-                                    <segue destination="gzy-jO-KPT" kind="presentation" identifier="segueForSignUP" modalPresentationStyle="fullScreen" id="PvV-Nr-8xz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5h6-qg-NmF">
@@ -250,6 +249,7 @@
                         <outlet property="viewToSignUpApple" destination="Y0A-MA-yR6" id="afz-G2-70w"/>
                         <outlet property="viewToSignUpEmailTextField" destination="uv4-cr-3OO" id="eHk-JY-fZt"/>
                         <segue destination="C7r-GA-Mob" kind="unwind" identifier="unwindForInitViewController" unwindAction="unwindForInitViewControllerWithSegue:" id="Owt-6u-qeM"/>
+                        <segue destination="gzy-jO-KPT" kind="presentation" identifier="segueForSignUP" modalPresentationStyle="fullScreen" id="KtR-2R-Ehb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0u-nM-B9V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
