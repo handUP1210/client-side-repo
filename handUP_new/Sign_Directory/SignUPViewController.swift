@@ -16,6 +16,7 @@
  -isValid o
  -회원가입 메소드 따로 만들기 o
  -segue를 회원가입인 되면 실행되도록 로직 구성
+ 6. 회원가입 시 중복처리
  */
 
 
@@ -27,7 +28,7 @@ import FirebaseFirestore
 
 class SignUPViewController: UIViewController {
     
-    var db : Firestore!
+    var db : Firestore?
     var email : String?
     
     
@@ -37,12 +38,12 @@ class SignUPViewController: UIViewController {
     
     @IBAction func touchUpToSignIn(_ sender: Any) {
         performSegue(withIdentifier: "segueForLoginViewController", sender: nil)
-   }
-
+    }
+    
     @IBAction func touchUpSignUp(_ sender: Any) {
         //ToDo: 이메일 활용한 회원가입
         signUpToUser(name: textFieldToName.text, email: textFieldToEmail.text, password: textFtextFieldToPassWord.text)
-    
+        
     }
     
     @IBAction func touchUpApple(_ sender: Any) {
@@ -73,13 +74,13 @@ class SignUPViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        receivDataInit()
+        receiveDataInit()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-       
+        
     }
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueForMainView" {
             let destination = segue.destination
             destination.modalPresentationStyle = .fullScreen
@@ -88,7 +89,7 @@ class SignUPViewController: UIViewController {
             let destination = segue.destination
             destination.modalPresentationStyle = .fullScreen
         }
-     }
+    }
 }
 
 extension SignUPViewController : UITextFieldDelegate{
@@ -139,25 +140,48 @@ extension SignUPViewController{
         
         if isTextFieldValid{
             Auth.auth().createUser(withEmail: email! , password: password!) { authResult, error in
-                // 회원가입하고 가입한 user 정보로 userDefalults저장하기
+                guard error == nil else{
+                    self.showCheckAlert(title: "확인", message: "동일한 이메일이 존재합니다!")
+                    return print("error : \(error)")
+                }
+                let uid = authResult?.user.uid
                 DispatchQueue.global().async {
-                    self.setUserInfo(email: email, name: name, gender: nil, classes: nil, location: nil, anonymity: false)
+                    self.setUserInfo(uid: uid, email: email, name: name, gender: nil, classes: nil, location: nil, anonymity: false)
+                    self.cloudFireStoreUserInfoInit()
                 }
                 self.performSegue(withIdentifier: "segueForMainView", sender: nil)
-                print(" signIn Complete & value Checking ----> \(authResult)")
-                
             }
         }
         else{
-            print(" value Checking ----> \(isTextFieldValid)")
-
-            let alert = UIAlertController(title: "확인", message: "아이디 및 비밀번호 입력란을 확인해주세요 :)", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            showCheckAlert(title: "확인", message: "아이디 및 비밀번호 입력란을 확인해주세요 :)")
         }
     }
     
-    func receivDataInit(){
+    func receiveDataInit(){
         textFieldToEmail.text = email!
     }
+    
+    func showCheckAlert(title: String?, message: String?){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func cloudFireStoreUserInfoInit(){
+        // dataWrite 틀만 잡음
+        self.db = Firestore.firestore()
+        var ref: DocumentReference? = nil
+        ref = self.db?.collection("users").addDocument(data: [
+            "first": "Ada",
+            "last": "Lovelace",
+            "born": 1815
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
+    }
 }
+

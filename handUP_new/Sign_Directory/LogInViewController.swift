@@ -82,8 +82,10 @@ extension LogInViewController{
             Auth.auth().signIn(withEmail: email!, password: password!) { [weak self] authResult, error in
                 guard let strongSelf = self else { return }
                 //                 회원가입하고 가입한 user 정보로 userDefalults저장하기
+                let uid = authResult?.user.uid
+                
                 DispatchQueue.global().async {
-                    self!.setUserInfo(email: email, name: nil, gender: nil, classes: nil, location: nil, anonymity: false)
+                    self!.setUserInfo(uid: uid, email: email, name: nil, gender: nil, classes: nil, location: nil, anonymity: false)
                 }
                 self?.performSegue(withIdentifier: "segueForMainView", sender: nil)
             }
