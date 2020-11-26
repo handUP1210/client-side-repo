@@ -15,12 +15,8 @@ import UIKit
 class MainViewController: UIViewController {
     
     @IBAction func unwindForMainViewController (segue : UIStoryboardSegue) {
-        
+       
     }
-    
-
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,15 +26,15 @@ class MainViewController: UIViewController {
 //        UIApplication.statusBarTintColor = .black
 //        bar.tintColor = .black
 //        bar.backgroundColor = .black
+// Do any additional setup after loading the view.
         
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "segueForSearch"{
             let destination = segue.destination
             destination.modalPresentationStyle = .fullScreen
@@ -50,7 +46,7 @@ class MainViewController: UIViewController {
 
 class MainTabBarController: UITabBarController {
 
-    @IBAction func unwindForMainTabBarController (segue : UIStoryboardSegue) {
+    @IBAction func unwindForMainTabBarController(segue : UIStoryboardSegue){
         
     }
 //

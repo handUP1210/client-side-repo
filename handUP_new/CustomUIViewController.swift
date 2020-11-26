@@ -11,7 +11,59 @@ import UIKit
 
 extension UIViewController{
     
- func textFieldResignResponder(textField: UITextField){
-     textField.resignFirstResponder()
- }
+    func textFieldResignResponder(textField: UITextField){
+        textField.resignFirstResponder()
+    }
+    func setUserInfo(email: String?, name: String?, gender: String?, classes: String?, location: String?, anonymity: Bool?){ //
+        DispatchQueue.global().async {
+            let user = userInfo(email: email, name: name, gender: gender, classes: classes, location: location, Anonymity: anonymity)
+            var propertyListEncoder = try? PropertyListEncoder().encode(user)
+            var userCoreData = UserDefaults.standard
+            userCoreData.set(propertyListEncoder, forKey: userDefaultsKeys.userInfo.rawValue)
+            userCoreData.synchronize()
+        }
+    }
+}
+
+extension UIViewController{
+    func setProfileImage(profileImageView: UIImageView, key: String){
+        DispatchQueue.global().async {
+            if let profileImg = UserDefaults.standard.object(forKey: key) as? NSData{
+                if let castingProfileImage = UIImage(data: profileImg as Data){
+                    DispatchQueue.main.async{
+                        profileImageView.image = castingProfileImage
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+extension UIViewController{
+    
+    func navigtionBarIsHidden(VC: UIViewController, bool: Bool){
+        VC.navigationController?.navigationBar.isHidden = true
+    }
+    
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.count) != 6) {
+            return UIColor.gray
+        }
+        var rgbValue:UInt64 = 0
+        Scanner(string: cString).scanHexInt64(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
 }

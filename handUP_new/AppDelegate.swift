@@ -10,26 +10,45 @@ import UIKit
 import CoreData
 import NMapsMap
 import CoreLocation
+import Firebase
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
     
     var window : UIWindow?
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
         
-        var storyboardName = "Init"
-        var viewControllerIdentifier = "InitViewController"
-//        var storyboardName = "Init"
-//        var viewControllerIdentifier = "InitViewController"
+        var storyboardName:String?
+        var viewControllerIdentifier:String?
+        var authCurrentUserInfo = Auth.auth().currentUser
         
-        setRootViewcontroller(storyboard: storyboardName, viewController: viewControllerIdentifier)
-        DispatchQueue.global().async {
-            self.setUserInfo()
-            self.setNaverMap(accesskey: "ra3fwyfwi4")//accessKey MetaData
-            self.initLocation()
+        if authCurrentUserInfo != nil{
+            print(" value Checking ----> \(authCurrentUserInfo?.uid)")
+            print(" value Checking ----> \(authCurrentUserInfo?.email)")
+            storyboardName = "Main"
+            viewControllerIdentifier = "MainTabBarController"
+            DispatchQueue.global().async {
+                self.setNaverMap(accesskey: "ra3fwyfwi4")//accessKey MetaData
+                self.initLocation()
+            }
         }
+        else{
+            storyboardName = "Init"
+            viewControllerIdentifier = "InitViewController"
+            DispatchQueue.global().async {
+                self.setNaverMap(accesskey: "ra3fwyfwi4")//accessKey MetaData
+                self.initLocation()
+            }
+        }
+        defer {
+            setRootViewcontroller(storyboard: storyboardName!, viewController: viewControllerIdentifier!)
+        }
+
         return true
     }
 
@@ -81,6 +100,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
 }
 
+// -----------------------------------------------------------------------------------------//
+
 extension AppDelegate{
     func setRootViewcontroller(storyboard: String, viewController: String){
         self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -98,10 +119,11 @@ extension AppDelegate{
     }
 }
 
+
 extension AppDelegate{
-    func setUserInfo(){ // 수정? 
+    func setUserInfo(email: String?, name: String?, gender: String?, classes: String?, location: String?, anonymity: Bool?){ //
         DispatchQueue.global().async {
-            var user = userInfo(email: "ynwa3690@gmail.com", name: "김재석", gender: "남자", classes: "일반학생", location: "서울 특별시", Anonymity: true)
+            let user = userInfo(email: email, name: name, gender: gender, classes: classes, location: location, Anonymity: anonymity)
             var propertyListEncoder = try? PropertyListEncoder().encode(user)
             var userCoreData = UserDefaults.standard
             userCoreData.set(propertyListEncoder, forKey: userDefaultsKeys.userInfo.rawValue)

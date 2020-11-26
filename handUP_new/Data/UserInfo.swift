@@ -39,12 +39,12 @@ enum userDefaultsKeys : String {
 }
 
 struct userInfo: Codable{
-    var email : String!
-    var name :  String!
-    var gender : String!
-    var classes : String!
-    var location: String!
-    var Anonymity : Bool!
+    var email : String?
+    var name :  String?
+    var gender : String?
+    var classes : String?
+    var location: String?
+    var Anonymity : Bool?
 }
 
 struct location: Codable{
