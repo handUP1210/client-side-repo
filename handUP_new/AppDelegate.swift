@@ -121,16 +121,6 @@ extension AppDelegate{
 
 
 extension AppDelegate{
-    func setUserInfo(email: String?, name: String?, gender: String?, classes: String?, location: String?, anonymity: Bool?){ //
-        DispatchQueue.global().async {
-            let user = userInfo(email: email, name: name, gender: gender, classes: classes, location: location, Anonymity: anonymity)
-            var propertyListEncoder = try? PropertyListEncoder().encode(user)
-            var userCoreData = UserDefaults.standard
-            userCoreData.set(propertyListEncoder, forKey: userDefaultsKeys.userInfo.rawValue)
-            userCoreData.synchronize()
-        }
-    }
-    
     func setNaverMap(accesskey : String){
         NMFAuthManager.shared().clientId = accesskey
     }

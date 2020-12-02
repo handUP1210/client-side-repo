@@ -95,6 +95,8 @@
 		63B806912547FE3300069973 /* IncumbentInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B806902547FE3300069973 /* IncumbentInfoTableViewCell.swift */; };
 		63B8071D254FD50500069973 /* QuestionIncumbentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8071C254FD50200069973 /* QuestionIncumbentCollectionViewCell.swift */; };
 		63B80722254FD51B00069973 /* IncumbentAnswerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B80721254FD51B00069973 /* IncumbentAnswerCollectionViewCell.swift */; };
+		63C0A5D725762CDF00071674 /* ProfileChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C0A5D625762CDF00071674 /* ProfileChangeViewController.swift */; };
+		63C0A5DC25762E0700071674 /* ProfileChangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C0A5DB25762E0700071674 /* ProfileChangeTableViewCell.swift */; };
 		63D4025A24FDCD2A0017F9A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D4025924FDCD2A0017F9A8 /* AppDelegate.swift */; };
 		63D4025E24FDCD2A0017F9A8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D4025D24FDCD2A0017F9A8 /* MainViewController.swift */; };
 		63D4026124FDCD2A0017F9A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63D4025F24FDCD2A0017F9A8 /* Main.storyboard */; };
@@ -230,6 +232,8 @@
 		63B806902547FE3300069973 /* IncumbentInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncumbentInfoTableViewCell.swift; sourceTree = "<group>"; };
 		63B8071C254FD50200069973 /* QuestionIncumbentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionIncumbentCollectionViewCell.swift; sourceTree = "<group>"; };
 		63B80721254FD51B00069973 /* IncumbentAnswerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncumbentAnswerCollectionViewCell.swift; sourceTree = "<group>"; };
+		63C0A5D625762CDF00071674 /* ProfileChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChangeViewController.swift; sourceTree = "<group>"; };
+		63C0A5DB25762E0700071674 /* ProfileChangeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChangeTableViewCell.swift; sourceTree = "<group>"; };
 		63D4025624FDCD2A0017F9A8 /* handUP_new.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = handUP_new.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63D4025924FDCD2A0017F9A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63D4025D24FDCD2A0017F9A8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -400,6 +404,8 @@
 				638799BA2510F9C400A073D4 /* ProfileKeyword.storyboard */,
 				638799C4251100A100A073D4 /* ProfileTopCustomCollectionViewCell.swift */,
 				638799C625111FDD00A073D4 /* ProfileBasicTableViewCell.swift */,
+				63C0A5D625762CDF00071674 /* ProfileChangeViewController.swift */,
+				63C0A5DB25762E0700071674 /* ProfileChangeTableViewCell.swift */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -888,6 +894,7 @@
 				638DE447251846DC00332361 /* MyAnswerViewController.swift in Sources */,
 				6387997D2501CE8000A073D4 /* MainSearchViewController.swift in Sources */,
 				638799AA250B642600A073D4 /* CompleteViewController.swift in Sources */,
+				63C0A5DC25762E0700071674 /* ProfileChangeTableViewCell.swift in Sources */,
 				6387999C2508D78500A073D4 /* QuestionDetailAnswerCollectionViewCell.swift in Sources */,
 				63D4026424FDCD2A0017F9A8 /* handUP_new.xcdatamodeld in Sources */,
 				638DE469251863F000332361 /* MyaqTopCustomTabBarCollectionViewCell.swift in Sources */,
@@ -904,6 +911,7 @@
 				63D402A624FDE7770017F9A8 /* CustomeMethod.swift in Sources */,
 				6387998B25068D2D00A073D4 /* MainAnswerTabBarViewController.swift in Sources */,
 				638DE442251846CE00332361 /* MyQuestionViewController.swift in Sources */,
+				63C0A5D725762CDF00071674 /* ProfileChangeViewController.swift in Sources */,
 				630B8602253757E30044E3DE /* WebViewTestViewController.swift in Sources */,
 				63EE0C52251D929D004B8C16 /* MyqaIndepthDetailCollectionViewCell.swift in Sources */,
 				63B80722254FD51B00069973 /* IncumbentAnswerCollectionViewCell.swift in Sources */,

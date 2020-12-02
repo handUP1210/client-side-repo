@@ -139,18 +139,19 @@ extension SignUPViewController{
         let isTextFieldValid = isValid(email: email, password: password)
         
         if isTextFieldValid{
-            Auth.auth().createUser(withEmail: email! , password: password!) { authResult, error in
-                guard error == nil else{
-                    self.showCheckAlert(title: "확인", message: "동일한 이메일이 존재합니다!")
-                    return print("error : \(error)")
+            DispatchQueue.global().async {
+                Auth.auth().createUser(withEmail: email! , password: password!) { authResult, error in
+                    guard error == nil else{
+                        self.showCheckAlert(title: "확인", message: "동일한 이메일이 존재합니다!")
+                        return print("error : \(error)")
+                    }
+                    let uid = authResult?.user.uid
+                    DispatchQueue.global().async {
+                        self.setUserInfo(uid: uid, email: email, name: name, gender: nil, classfication: 0, score: 0, location: nil, anonymity: false)
+                    }
                 }
-                let uid = authResult?.user.uid
-                DispatchQueue.global().async {
-                    self.setUserInfo(uid: uid, email: email, name: name, gender: nil, classes: nil, location: nil, anonymity: false)
-                    self.cloudFireStoreUserInfoInit()
-                }
-                self.performSegue(withIdentifier: "segueForMainView", sender: nil)
             }
+            self.performSegue(withIdentifier: "segueForMainView", sender: nil)
         }
         else{
             showCheckAlert(title: "확인", message: "아이디 및 비밀번호 입력란을 확인해주세요 :)")
@@ -167,21 +168,5 @@ extension SignUPViewController{
         self.present(alert, animated: true, completion: nil)
     }
     
-    func cloudFireStoreUserInfoInit(){
-        // dataWrite 틀만 잡음
-        self.db = Firestore.firestore()
-        var ref: DocumentReference? = nil
-        ref = self.db?.collection("users").addDocument(data: [
-            "first": "Ada",
-            "last": "Lovelace",
-            "born": 1815
-        ]) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(ref!.documentID)")
-            }
-        }
-    }
 }
 
