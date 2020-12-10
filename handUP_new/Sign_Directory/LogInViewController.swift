@@ -42,12 +42,15 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func touchUpPssWordForgotButton(_ sender: Any) {
+        showCheckAlert(title: "확인", message: "지금은 서버 점검 중입니다ㅠㅠ")
     }
     
     @IBAction func touchUpApple(_ sender: Any) {
+        showCheckAlert(title: "확인", message: "지금은 서버 점검 중입니다. 이메일 로그인을 이용해주세요!")
     }
     
     @IBAction func touchUpGoogle(_ sender: Any) {
+        showCheckAlert(title: "확인", message: "지금은 서버 점검 중입니다. 이메일 로그인을 이용해주세요!")
     }
     
     override func viewDidLoad() {
@@ -99,6 +102,14 @@ extension LogInViewController{
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func showCheckAlert(title: String?, message: String?){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    
 }
 //---------------------divide-------------------------------//
 

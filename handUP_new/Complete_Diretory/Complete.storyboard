@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CSZ-g1-9hb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CSZ-g1-9hb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,27 +51,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HqH-UL-zAw">
                                 <rect key="frame" x="0.0" y="533" width="414" height="130"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rU4-zu-gov">
-                                        <rect key="frame" x="25" y="8" width="364" height="50"/>
-                                        <color key="backgroundColor" red="0.41176470590000003" green="0.47450980390000003" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="WQF-b6-7GQ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
-                                        <state key="normal" title="1대1 질문하기">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="touchUPToIndepthQuestion:" destination="CSZ-g1-9hb" eventType="touchUpInside" id="Gaw-yu-XyW"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOt-xg-SMc">
-                                        <rect key="frame" x="25" y="72" width="364" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOt-xg-SMc">
+                                        <rect key="frame" x="25" y="40" width="364" height="50"/>
                                         <color key="backgroundColor" red="0.41176470590000003" green="0.47450980390000003" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="rIl-4i-etg"/>
@@ -93,11 +75,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="1v1-7X-CjC"/>
                                     <constraint firstItem="OOt-xg-SMc" firstAttribute="leading" secondItem="HqH-UL-zAw" secondAttribute="leading" constant="25" id="5VF-dg-2dg"/>
-                                    <constraint firstItem="rU4-zu-gov" firstAttribute="leading" secondItem="HqH-UL-zAw" secondAttribute="leading" constant="25" id="Gp6-wf-QVN"/>
-                                    <constraint firstItem="rU4-zu-gov" firstAttribute="top" secondItem="HqH-UL-zAw" secondAttribute="top" constant="8" id="cmW-og-64m"/>
+                                    <constraint firstItem="OOt-xg-SMc" firstAttribute="centerY" secondItem="HqH-UL-zAw" secondAttribute="centerY" id="bCL-wT-ts4"/>
                                     <constraint firstAttribute="trailing" secondItem="OOt-xg-SMc" secondAttribute="trailing" constant="25" id="oCI-xD-ytI"/>
-                                    <constraint firstAttribute="bottom" secondItem="OOt-xg-SMc" secondAttribute="bottom" constant="8" id="ssU-i1-mSX"/>
-                                    <constraint firstAttribute="trailing" secondItem="rU4-zu-gov" secondAttribute="trailing" constant="25" id="tJF-rz-Lv6"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check-circle" translatesAutoresizingMaskIntoConstraints="NO" id="zOd-OE-2eM">
@@ -108,6 +87,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="zDP-3B-nKU"/>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98431372549019602" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="HqH-UL-zAw" firstAttribute="leading" secondItem="zDP-3B-nKU" secondAttribute="leading" id="7ru-cU-aw2"/>
@@ -120,11 +100,9 @@
                             <constraint firstItem="zDP-3B-nKU" firstAttribute="trailing" secondItem="HqH-UL-zAw" secondAttribute="trailing" id="kxY-1z-wNU"/>
                             <constraint firstItem="fbe-Bs-t8p" firstAttribute="centerY" secondItem="zDP-3B-nKU" secondAttribute="centerY" id="noY-B8-jje"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="zDP-3B-nKU"/>
                     </view>
                     <connections>
                         <outlet property="buttonToBottom" destination="OOt-xg-SMc" id="kjl-Or-PNS"/>
-                        <outlet property="buttonToTop" destination="rU4-zu-gov" id="NZE-rh-hmB"/>
                         <outlet property="imageViewToTop" destination="zOd-OE-2eM" id="2oE-wH-fxs"/>
                         <outlet property="labelToContents" destination="iPG-1D-nco" id="V4j-TC-O5N"/>
                         <outlet property="labelToHeadLine" destination="aR7-08-XtC" id="RbI-jb-GYs"/>

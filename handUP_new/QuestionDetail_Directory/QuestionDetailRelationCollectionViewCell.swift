@@ -10,19 +10,20 @@ import UIKit
 
 class QuestionDetailRelationCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var labelToRelationKeyword: UILabel!
+    var buttonClick:(()->Void)?
     
 }
 
 extension QuestionDetailRelationCollectionViewCell:UICollectionViewDataSource,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionDetailRalationQuestionCollectionViewCell", for: indexPath) as? QuestionDetailRalationQuestionCollectionViewCell else{
             return UICollectionViewCell()
         }
-        
+        cell.buttonClick = self.buttonClick
         return cell
     }
     
@@ -50,4 +51,7 @@ class QuestionDetailRalationQuestionCollectionViewCell
     @IBOutlet weak var labelToNumOfAnswer: UILabel!
     
     @IBOutlet weak var labelToContents: UILabel!
+    var buttonClick:(()->Void)?
+    // 액션 메소드
+    
 }

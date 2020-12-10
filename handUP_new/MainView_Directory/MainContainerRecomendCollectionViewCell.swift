@@ -14,14 +14,24 @@ class MainContainerRecomendCollectionViewCell: UICollectionViewCell {
 
 extension MainContainerRecomendCollectionViewCell: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainContainerRecomendContentsCollectionViewCell", for: indexPath) as? MainContainerRecomendContentsCollectionViewCell else {
             return UICollectionViewCell()
         }
-        return cell
+        if indexPath.row == 0{
+            return cell
+        }
+        else if indexPath.row == 1{
+            cell.title.text = "취업고민을 함께 해결해요"
+            return cell
+        }
+        else{
+            cell.title.text = "지금 뜨는 질문을 확인하세요"
+            return cell
+        }
     }
 }
 
@@ -37,5 +47,7 @@ extension MainContainerRecomendCollectionViewCell: UICollectionViewDelegateFlowL
 
 
 class MainContainerRecomendContentsCollectionViewCell: UICollectionViewCell{
+    
+    @IBOutlet weak var title: UILabel!
     
 }

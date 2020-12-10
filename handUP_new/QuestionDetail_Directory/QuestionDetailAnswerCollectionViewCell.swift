@@ -24,7 +24,10 @@ class QuestionDetailAnswerCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var labelToAnswerContents: UILabel!
     
+    var buttonClick:(()->Void)?
+    
     @IBAction func touchUpToIndepthQuestion(_ sender: Any) {
+        buttonClick?()
     }
     @IBAction func touchUpToAnswerUserMenu(_ sender: Any) {
     }

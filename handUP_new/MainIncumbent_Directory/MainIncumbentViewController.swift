@@ -37,6 +37,7 @@ class MainIncumbentViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         refreshLocationData()
+        showCheckAlert(title: "확인", message: "지금 주변에 현직자가 없어요 !")
     }
     
     
@@ -54,14 +55,16 @@ class MainIncumbentViewController: UIViewController {
 extension MainIncumbentViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainIncumbentCollectionViewCell", for: indexPath) as? MainIncumbentCollectionViewCell else{
             return UICollectionViewCell()
         }
-        
+        let user = loadUerInfo()
+        cell.labelToID.text = user.email
+        cell.labelToClass.text = user.classes
         return cell
     }
     
@@ -102,3 +105,10 @@ extension MainIncumbentViewController: CLLocationManagerDelegate{
     }
 }
 
+extension MainIncumbentViewController{
+    func showCheckAlert(title: String?, message: String?){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+}

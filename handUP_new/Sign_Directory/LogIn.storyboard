@@ -154,7 +154,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGg-C4-h42">
                                 <rect key="frame" x="25" y="566" width="364" height="45"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appleLog" translatesAutoresizingMaskIntoConstraints="NO" id="UF5-vB-h5r">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google" translatesAutoresizingMaskIntoConstraints="NO" id="UF5-vB-h5r">
                                         <rect key="frame" x="10" y="7.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="a2I-E8-TOT"/>
@@ -348,6 +348,7 @@
     <resources>
         <image name="appleLog" width="170.66667175292969" height="170.66667175292969"/>
         <image name="before" width="7.3333334922790527" height="13.333333015441895"/>
+        <image name="google" width="375" height="375"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

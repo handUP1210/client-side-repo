@@ -47,9 +47,11 @@ class SignUPViewController: UIViewController {
     }
     
     @IBAction func touchUpApple(_ sender: Any) {
+        showCheckAlert(title: "확인", message: "지금은 서버 점검 중입니다. 이메일 로그인을 이용해주세요!")
     }
     
     @IBAction func touchUpGoogle(_ sender: Any) {
+        showCheckAlert(title: "확인", message: "지금은 서버 점검 중입니다. 이메일 로그인을 이용해주세요!")
     }
     
     
@@ -148,6 +150,7 @@ extension SignUPViewController{
                     let uid = authResult?.user.uid
                     DispatchQueue.global().async {
                         self.setUserInfo(uid: uid, email: email, name: name, gender: nil, classfication: 0, score: 0, location: nil, anonymity: false)
+                        self.setUserPostInfo(numOfQuestion: 0, numOfAnswer: 0, questions: [], answers: [])
                     }
                 }
             }

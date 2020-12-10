@@ -17,6 +17,7 @@ class MainSearchViewController: UIViewController {
     }
     
     @IBAction func touchUpSearch(_ sender: Any) {
+        showCheckAlert(title: "확인", message: "지금은 테스트 중이여서 검색기능을 막았놨습니다. !")
         print(self.textFieldToSearch.text)
 
     }
@@ -62,6 +63,12 @@ extension MainSearchViewController: UITextFieldDelegate{
         
         textField.resignFirstResponder()
         return true
+    }
+    
+    func showCheckAlert(title: String?, message: String?){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

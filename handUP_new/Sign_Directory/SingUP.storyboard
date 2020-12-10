@@ -147,7 +147,7 @@
                                             <action selector="touchUpSignGoogle:" destination="qD1-jH-kZg" eventType="touchUpInside" id="FvU-Vo-Cjp"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appleLog" translatesAutoresizingMaskIntoConstraints="NO" id="UBg-5C-4bE">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google" translatesAutoresizingMaskIntoConstraints="NO" id="UBg-5C-4bE">
                                         <rect key="frame" x="10" y="2.5" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="1zI-Hs-DUM"/>
@@ -395,7 +395,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDL-Q1-rZm">
                                 <rect key="frame" x="35" y="640" width="344" height="46"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appleLog" translatesAutoresizingMaskIntoConstraints="NO" id="FQC-n2-bbi">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google" translatesAutoresizingMaskIntoConstraints="NO" id="FQC-n2-bbi">
                                         <rect key="frame" x="10" y="5.5" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="BkX-Ir-sPr"/>
@@ -560,6 +560,7 @@
     <resources>
         <image name="appleLog" width="170.66667175292969" height="170.66667175292969"/>
         <image name="before" width="7.3333334922790527" height="13.333333015441895"/>
+        <image name="google" width="375" height="375"/>
         <image name="handUpLogo_sky" width="136" height="128.33332824707031"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

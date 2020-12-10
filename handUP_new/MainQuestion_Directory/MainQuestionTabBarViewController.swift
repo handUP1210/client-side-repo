@@ -12,6 +12,7 @@ import Alamofire
  check
  1. action(back o , finish, selectPhoto)
  2. containerView Embeded VC 접근방법 고민! x
+ 3. 질문완료했을 때 !!!
  */
 
 class MainQuestionTabBarViewController: UIViewController {
@@ -24,14 +25,26 @@ class MainQuestionTabBarViewController: UIViewController {
     
     @IBAction func tpuchUpToFinish(_ sender: Any) {
         //Netword Testing logic 
-        self.performSegue(withIdentifier: "segueForComplete", sender: nil)
-        //        self.performSegue(withIdentifier: "segueForWebViewTesting", sender: nil)
-        DispatchQueue.global().async {
-            self.networkGetTesting()
-            self.networkPostTesting()
-            //        webViewTesting()
-            
-            
+        let title = self.textFieldToHeadLine.text
+        let contents = self.textViewToContent.text
+        let keywords = self.textFieldToTag.text
+        let isValidResult = isValid(title: title, contents: contents, tag: keywords)
+        let isValidOfKeywordResult = isValidOfKeyword(keysords: keywords)
+        
+        if isValidResult{
+            if isValidOfKeywordResult{
+                DispatchQueue.global().async {
+                    // 질문하기 완료
+                    self.sendQuestionInfoToFireStore(title: title, contents: contents, keywords: keywords)
+                }
+                self.performSegue(withIdentifier: "segueForComplete", sender: nil)
+            }
+            else{
+                showCheckAlert(title: "확인", message: "키워드를 구분하기 위해서는 ,가 필요해요!")
+            }
+        }
+        else{
+            showCheckAlert(title: "확인", message: "전부 입력해주세요 :)")
         }
     }
     
@@ -120,65 +133,29 @@ extension MainQuestionTabBarViewController: UIImagePickerControllerDelegate, UIN
     }
 }
 
-
 extension MainQuestionTabBarViewController{
-    func networkGetTesting(){
-        //        let url = "http://ec2-3-34-156-244.ap-northeast-2.compute.amazonaws.com:8080/api/v1"
-        let url = "https://decdfc320a45.ngrok.io/api/v1/"
-        let decoder = JSONDecoder()
-        
-        AF.request(url).responseJSON { respond in
-            switch respond.result{
-            
-            case .success(let value):
-                do{
-                    let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
-                    let parsingResult = try decoder.decode([postRead].self, from: data)
-                    print("Success parsingDAta-> \(parsingResult)")
-                    print(type(of: parsingResult))
-                }catch{
-                    print(error)
-                }
-            case .failure(let error):
-                print("fail -> \(error.localizedDescription)")
-            }
+    func isValid(title:String?, contents:String?, tag:String?) -> Bool{
+        if title != "" && contents != "" && tag != ""{
+            return true
+        }
+        else{
+            return false
         }
     }
     
-    func networkPostTesting(){
-        let url = "https://bc7ef560f5f7.ngrok.io/api/v1/posts"
-        let Author = "박지충"
-        let Content = "도움좀"
-        let Title = "도와줘유 .... :)"
-        let encoder = JSONEncoder()
-        let written = postWritten(author: Author, content: Content, title: Title)
-        
-        do{
-            let postJson = try encoder.encode(written)
-            let jsonObject = try JSONSerialization.jsonObject(with: postJson, options:.mutableContainers)
-            
-            print("success -> \(type(of: jsonObject))")
-            
-            print("success -> \(String(data: postJson, encoding: .utf8))")
-        }catch{
-            print(error.localizedDescription)
+    func isValidOfKeyword(keysords : String?) -> Bool{
+        if let keywords = keysords?.range(of: ","){
+            return true
         }
-        
-
-        do{
-//            let postJson = try encoder.encode(written)
-            AF.request(url, method: .post, parameters: written, encoder: JSONParameterEncoder.default ).responseJSON {res in
-                switch res.result{
-                case .success(let value):
-                    print("success -> \(value)")
-                case .failure(let error):
-                    print("fail -> \(error.localizedDescription)")
-                }
-            }
-        }catch{
-            print(error.localizedDescription)
+        else{
+            return false
         }
     }
     
-    
+    func showCheckAlert(title: String?, message: String?){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
+

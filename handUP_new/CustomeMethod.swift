@@ -110,6 +110,16 @@ extension UIApplication {
     }
 }
 
+func returnStringOfNow() -> String{
+    let now  = Date()
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "ko_KR")
+    formatter.dateStyle = .short
+    formatter.timeStyle = .short
+    return formatter.string(from: now)
+}
+
+
 
 
 //extension UITableViewDelegate{

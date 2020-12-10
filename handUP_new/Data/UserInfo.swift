@@ -62,6 +62,7 @@ enum userDefaultsKeys : String {
     case profileImage
     case userInfo
     case location
+    case userPostInfo
 }
 
 struct userInfo: Codable{
@@ -97,7 +98,6 @@ struct userInfo: Codable{
         self.classfication = classfication
         self.classes = classes
         self.Anonymity = Anonymity
-        
     }
     
     init(dictionary: [String: Any]) {

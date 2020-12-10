@@ -20,9 +20,11 @@ import Alamofire
 class SignUPInitViewController: UIViewController {
     
     @IBAction func touchUpSignApple(_ sender: Any) {
+        showCheckAlert(title: "확인", message: "지금은 서버 점검 중입니다. 이메일 로그인을 이용해주세요!")
     }
     
     @IBAction func touchUpSignGoogle(_ sender: Any) {
+        showCheckAlert(title: "확인", message: "지금은 서버 점검 중입니다. 이메일 로그인을 이용해주세요!")
     }
     
     @IBAction func touchUpSignEmail(_ sender: Any) {
@@ -35,7 +37,8 @@ class SignUPInitViewController: UIViewController {
     }
     
     @IBAction func touchUpToBackButton(_ sender: Any) {
-        performSegue(withIdentifier: "unwindForInitViewController", sender: nil)
+//        performSegue(withIdentifier: "unwindForInitViewController", sender: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -113,6 +116,12 @@ extension SignUPInitViewController{
             self.present(alert, animated: true, completion: nil)
         }
         
+    }
+    
+    func showCheckAlert(title: String?, message: String?){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

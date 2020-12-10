@@ -55,6 +55,10 @@ class MainAnswerViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        showCheckAlert(title: "확인", message: "지금은 데이터가 없습니다ㅠㅠ")
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
               if segue.identifier == "segueForQuestionDetail"{
                   
@@ -115,7 +119,7 @@ extension MainAnswerViewController: UICollectionViewDelegateFlowLayout{
 // -------------------------ContentsTableView(tableView)-------------------
 extension MainAnswerViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -130,6 +134,11 @@ extension MainAnswerViewController:UITableViewDelegate,UITableViewDataSource{
         return height
     }
     
+    func showCheckAlert(title: String?, message: String?){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     
 }
