@@ -32,8 +32,8 @@ class MyqaViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setContainerViewController(storyboard: "MyqaDetail", viewControllerID: "MyqaDetailViewController")
-  
+//        setContainerViewController(storyboard: "MyqaDetail", viewControllerID: "MyqaDetailViewController")
+        setContainerViewController(storyboard: "IncuriousQuestionAlert", viewControllerID: "IncuriousQuestionAlertViewController")
     }
     
 
@@ -73,6 +73,7 @@ extension MyqaViewController: UICollectionViewDataSource, UICollectionViewDelega
             fatalError()
         }
         
+        
         cell.labelToName.textColor = .black
         cell.viewToBottom.backgroundColor = hexStringToUIColor(hex: "#30BDDC")
         
@@ -108,11 +109,14 @@ extension MyqaViewController{
         case 0:
             setContainerViewController(storyboard: "IncuriousQuestionAlert", viewControllerID: "IncuriousQuestionAlertViewController")
         case 1:
-            setContainerViewController(storyboard: "MyqaDetail", viewControllerID: "MyqaDetailViewController")
+            setContainerViewController(storyboard: "IncuriousQuestionAlert", viewControllerID: "IncuriousQuestionAlertViewController")
+//            setContainerViewController(storyboard: "MyqaDetail", viewControllerID: "MyqaDetailViewController")
         case 2:
-            setContainerViewController(storyboard: "MyqaDetail", viewControllerID: "MyqaDetailViewController")
+            setContainerViewController(storyboard: "IncuriousQuestionAlert", viewControllerID: "IncuriousQuestionAlertViewController")
+//            setContainerViewController(storyboard: "MyqaDetail", viewControllerID: "MyqaDetailViewController")
         case 3:
-            setContainerViewController(storyboard: "MyqaIndepthDetail", viewControllerID: "MyqaIndepthDetailViewController")
+            setContainerViewController(storyboard: "IncuriousQuestionAlert", viewControllerID: "IncuriousQuestionAlertViewController")
+//            setContainerViewController(storyboard: "MyqaIndepthDetail", viewControllerID: "MyqaIndepthDetailViewController")
         default:
             print("-touchUP\(indexPath.row)-")
         }

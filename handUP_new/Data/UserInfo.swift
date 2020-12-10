@@ -26,25 +26,103 @@ let myqaTopTabBarCellNames = ["궁금한 질문", "나의 질문", "나의 답�
 
 
 let settingContentsDic = ["프로필 설정":UIImage(named: "user"),
-                         "나의 크레딧":UIImage(named: "credit"),
-                         "나의 Q&A":UIImage(named: "q&a"),
-                         "설정": UIImage(named: "setting"),
-                        "로그아웃":UIImage(named: "logOut")]
+                          "나의 크레딧":UIImage(named: "credit"),
+                          "나의 Q&A":UIImage(named: "q&a"),
+                          "설정": UIImage(named: "setting"),
+                          "로그아웃":UIImage(named: "logOut")]
 
+func returnClass(classfication : Int?, score: Int?) -> String{
+    if classfication == 0{
+        switch score! {
+        case 0..<101:
+            return "일반학생"
+        case 101..<201:
+            return "우등생"
+        case 201..<301:
+            return "전교1등"
+        default:
+            return ""
+        }
+    }
+    else{
+        switch score! {
+        case 0..<101:
+            return "교생선생님"
+        case 101..<201:
+            return "담임선생님"
+        case 201..<301:
+            return "교장선생님"
+        default:
+            return ""
+        }
+    }
+}
 
 enum userDefaultsKeys : String {
     case profileImage
     case userInfo
     case location
+    case userPostInfo
 }
 
 struct userInfo: Codable{
+    var uid : String?
     var email : String?
     var name :  String?
     var gender : String?
+    var score : Int?
+    var classfication : Int?
     var classes : String?
     var location: String?
     var Anonymity : Bool?
+    var dictionaryRepresent : [String : Any]{
+        return [ "uid" : uid,
+                 "email" : email,
+                 "name" : name,
+                 "gender" : gender,
+                 "score" : score,
+                 "classfication" : classfication,
+                 "classes" : classes,
+                 "location" : location,
+                 "Anonymity" : Anonymity
+        ]
+    }
+    
+    init(uid: String?, email: String?, name: String?, gender: String?, score: Int?, classfication: Int?, classes: String?, location: String?, Anonymity: Bool?){
+        self.uid = uid
+        self.email = email
+        self.name = name
+        self.gender = gender
+        self.score = score
+        self.location = location
+        self.classfication = classfication
+        self.classes = classes
+        self.Anonymity = Anonymity
+    }
+    
+    init(dictionary: [String: Any]) {
+        self.uid = dictionary["uid"] as? String ?? nil
+        self.email = dictionary["email"] as? String ?? nil
+        self.name = dictionary["name"] as? String ?? nil
+        self.gender = dictionary["gender"] as? String ?? nil
+        self.score = dictionary["score"] as? Int ?? nil
+        self.location = dictionary["location"] as? String ?? nil
+        self.classfication = dictionary["classfication"] as? Int ?? nil
+        self.classes = dictionary["classes"] as? String ?? nil
+        self.Anonymity = dictionary["Anonymity"] as? Bool ?? nil
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case uid
+        case email
+        case name
+        case gender
+        case score
+        case classfication
+        case classes
+        case location
+        case Anonymity
+    }
 }
 
 struct location: Codable{
@@ -75,19 +153,19 @@ struct postRead:Codable{
 }
 
 struct postWritten:Codable {
-//    init(Author : String, Content : String, Title: String){
-//        author = Author
-//        content = Content
-//        title = Title
-//    }
+    //    init(Author : String, Content : String, Title: String){
+    //        author = Author
+    //        content = Content
+    //        title = Title
+    //    }
     
     var author : String
     var content : String
     var title : String
-
-//    var postJson = {
-//        let encoder = JSONEncoder()
-//        return encoder.encode(Self)
-//    }
+    
+    //    var postJson = {
+    //        let encoder = JSONEncoder()
+    //        return encoder.encode(Self)
+    //    }
     
 }

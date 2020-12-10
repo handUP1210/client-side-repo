@@ -10,6 +10,9 @@
  1. image 설정( profile, settingImage) o
  */
 import UIKit
+import Firebase
+import FirebaseCore
+import FirebaseFirestore
 
 class MainMyPageViewController: UIViewController {
     
@@ -30,6 +33,10 @@ class MainMyPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setProfileImage(profileImageView: imageViewToProfile, key: userDefaultsKeys.profileImage.rawValue)
+        let user = loadUerInfo()
+        self.labelToID.text = user.email
+        self.labelToClass.text = user.classes
+        self.labelToCredit.text = "0"
     }
     
     
@@ -79,13 +86,18 @@ extension MainMyPageViewController{
         switch row {
         case 0:
             print("-\(row) Cell select-")
-//            performSegue(withIdentifier: "segueForProfile", sender: self)
+            //            performSegue(withIdentifier: "segueForProfile", sender: self)
             var storyboard = UIStoryboard(name: "Profile", bundle: nil)
             var VC = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
             VC?.modalPresentationStyle = .fullScreen
             self.present(VC!, animated: true, completion: nil )
         case 1:
             print("-\(row) Cell select-")
+            var storyboard = UIStoryboard(name: "Credit", bundle: nil)
+            var VC = storyboard.instantiateViewController(withIdentifier: "CreditViewController") as? CreditViewController
+            VC?.modalPresentationStyle = .fullScreen
+            self.present(VC!, animated: true, completion: nil )
+            
         case 2:
             print("-\(row) Cell select-")
             var storyboard = UIStoryboard(name: "MyQA", bundle: nil)
@@ -96,9 +108,36 @@ extension MainMyPageViewController{
         case 3:
             print("-\(row) Cell select-")
         case 4:
+            changedToWindowRootViewController(storyboard: "Init", viewController: "InitViewController")
+            DispatchQueue.global().async {
+                self.currentUserLogOut()
+            }
             print("-\(row) Cell select-")
         default:
             print("cellSelected")
         }
     }
+}
+
+extension MainMyPageViewController{
+    
+    func changedToWindowRootViewController(storyboard: String, viewController: String){
+        // 1. parameter로 appdelegate window 접근 -> window Storyboard 교체 -> 화면 뿌려주기
+        var appDelegate = UIApplication.shared.delegate as? AppDelegate
+        var window = appDelegate?.window
+        let storyboard = UIStoryboard(name: storyboard, bundle: nil)
+        let VC = storyboard.instantiateViewController(withIdentifier: viewController)
+        window?.rootViewController = VC
+        window?.makeKeyAndVisible()
+    }
+    
+    func currentUserLogOut(){
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
 }

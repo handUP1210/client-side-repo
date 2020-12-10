@@ -30,6 +30,7 @@ class CompleteViewController: UIViewController {
     
     
     @IBAction func touchUPToIndepthQuestion(_ sender: Any) {
+        
     }
     
     @IBAction func touchUpToBackMain(_ sender: Any) {
@@ -39,8 +40,8 @@ class CompleteViewController: UIViewController {
         super.viewDidLoad()
         labelToHeadLine.text = uiTitles?.headLineTitle
         labelToContents.text = uiTitles?.contentsTitle
-        buttonToTop.titleLabel?.text = uiTitles?.topButtonTitle
-        buttonToTop.titleLabel?.text = uiTitles?.bottomButtonTitle
+//        buttonToTop.titleLabel?.text = uiTitles?.topButtonTitle
+//        buttonToTop.titleLabel?.text = uiTitles?.bottomButtonTitle
         // Do any additional setup after loading the view.
     }
     

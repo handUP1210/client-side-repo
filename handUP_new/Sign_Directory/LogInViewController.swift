@@ -42,12 +42,15 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func touchUpPssWordForgotButton(_ sender: Any) {
+        showCheckAlert(title: "확인", message: "지금은 서버 점검 중입니다ㅠㅠ")
     }
     
     @IBAction func touchUpApple(_ sender: Any) {
+        showCheckAlert(title: "확인", message: "지금은 서버 점검 중입니다. 이메일 로그인을 이용해주세요!")
     }
     
     @IBAction func touchUpGoogle(_ sender: Any) {
+        showCheckAlert(title: "확인", message: "지금은 서버 점검 중입니다. 이메일 로그인을 이용해주세요!")
     }
     
     override func viewDidLoad() {
@@ -81,9 +84,14 @@ extension LogInViewController{
         if isTextFieldValid{
             Auth.auth().signIn(withEmail: email!, password: password!) { [weak self] authResult, error in
                 guard let strongSelf = self else { return }
-                //                 회원가입하고 가입한 user 정보로 userDefalults저장하기
+                //                 로그인한 uid 정보로 db에서 정보 찾아와서 userDefalults저장하기
+                let uid = authResult?.user.uid
+                
                 DispatchQueue.global().async {
-                    self!.setUserInfo(email: email, name: nil, gender: nil, classes: nil, location: nil, anonymity: false)
+                    // roceivedUserInfoData -> userDefaultsSet
+                    //self!.setUserInfo(uid: uid, email: email, name: nil, gender: nil, classfication: nil, score: nil, location: nil, anonymity: false)
+                    self!.receivedUserInfoFromFireStore()
+                    
                 }
                 self?.performSegue(withIdentifier: "segueForMainView", sender: nil)
             }
@@ -94,6 +102,14 @@ extension LogInViewController{
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func showCheckAlert(title: String?, message: String?){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    
 }
 //---------------------divide-------------------------------//
 

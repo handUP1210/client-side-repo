@@ -9,6 +9,7 @@
 import UIKit
 
 class QuestionDetailViewController: UIViewController {
+    var indexPathOfSelectedQuestionCell : Int?
     
     @IBAction func touchUpToMenu(_ sender: Any) {
     }
@@ -39,12 +40,12 @@ class QuestionDetailViewController: UIViewController {
 extension QuestionDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("-collectionView numberOfItemsInSection init-")
-        return 5
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         print("-collectionView cellForItemAt init-")
-        var rowOfLastIndexPath = 4
+        var rowOfLastIndexPath = 3
         //cell 1(질문)
         if indexPath.row == 0{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionDetailCollectionViewCell", for: indexPath) as? QuestionDetailCollectionViewCell else{
@@ -58,19 +59,51 @@ extension QuestionDetailViewController: UICollectionViewDataSource, UICollection
             var cellWidth = collectionView.bounds.width
             let cellHegiht = cellBottomHeight + cellTopViewHeight + cellTextViewHeight + flexibleSpacing
             cell.bounds.size.height = cellHegiht
+            cell.buttonClick = {
+                let alert = UIAlertController(title: " 확인", message: "현재 1대1 질문하기 기능은 점검 때문에 사용할 수 없습니다ㅠㅠ", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
             return cell
         }//cell 2(답변)
-        else if indexPath.row == 4{
+        else if indexPath.row == 3{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionDetailRelationCollectionViewCell", for: indexPath) as? QuestionDetailRelationCollectionViewCell else{
                 return UICollectionViewCell()
             }
+            
             return cell
         }//cell 3(연관질문)
         else{
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionDetailAnswerCollectionViewCell", for: indexPath) as? QuestionDetailAnswerCollectionViewCell else{
-                return UICollectionViewCell()
+            //이거 전부 임시 테스트
+            let indexPath = indexPath
+            if indexPath.row == 1{
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionDetailAnswerCollectionViewCell", for: indexPath) as? QuestionDetailAnswerCollectionViewCell else{
+                    return UICollectionViewCell()
+                }
+                cell.buttonClick = {
+                    let alert = UIAlertController(title: " 확인", message: "현재 1대1 질문하기 기능은 점검 때문에 사용할 수 없습니다ㅠㅠ", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                return cell
             }
-            return cell
+            else{
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionDetailAnswerCollectionViewCell", for: indexPath) as? QuestionDetailAnswerCollectionViewCell else{
+                    return UICollectionViewCell()
+                }
+                let keyword = answerInfoTest[indexPath.row]["keyword"]
+                cell.labelToAnswerUserMajorField.text = answerInfoTest[1]["keyword"] as? String
+                cell.labelToDate.text =  "1시간전"
+                cell.labelToAnswerUserID.text = answerInfoTest[indexPath.row]["email"] as? String
+                cell.labelToAnswerContents.text =  answerInfoTest[1]["contents"] as? String
+                cell.buttonClick = {
+                    let alert = UIAlertController(title: " 확인", message: "현재 1대1 질문하기 기능은 점검 때문에 사용할 수 없습니다ㅠㅠ", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                return cell
+            }
+       
         }
     }
 }
@@ -79,7 +112,7 @@ extension QuestionDetailViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         print("-collectionView flowLayout init-")
         
-        var rowOfLastIndexPath = 4
+        var rowOfLastIndexPath = 3
         var cellWidth = collectionView.bounds.width
         var cellHegiht : CGFloat!
         //cell 1(질문)

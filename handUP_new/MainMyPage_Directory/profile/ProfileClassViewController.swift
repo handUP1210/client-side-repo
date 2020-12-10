@@ -50,6 +50,11 @@ class ProfileClassViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        let user = loadUerInfo()
+        self.labelToClass.text = user.classes
+        self.labelToNumOfQuestionOrAnswer.text = "0"
+    }
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,13 +71,13 @@ class ProfileClassViewController: UIViewController {
 
 extension ProfileClassViewController{
     func initAlertForShoolEmail(){
-        var alert = UIAlertController(title: "학교인증", message: "학교 이메일을 입력해주세요 :)", preferredStyle: .alert)
+        var alert = UIAlertController(title: "회사인증", message: "회사 이메일을 입력해주세요 :)", preferredStyle: .alert)
         var ActionToOK = UIAlertAction(title: "확인", style: .default) {_ in
-            self.actinoToOK(alert: alert)
+//            self.actinoToOK()
         }
         var ActionToCancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         alert.addTextField { textField in
-            textField.placeholder = "학교 이메일을 입력해주세요!"
+            textField.placeholder = "회사 이메일을 입력해주세요!"
         }
         
         alert.addAction(ActionToOK)
@@ -80,8 +85,10 @@ extension ProfileClassViewController{
         self.present(alert, animated: true, completion: nil)
     }
     
-    func actinoToOK(alert:UIAlertController){
-        
+    func actinoToOK(){
+        let alert = UIAlertController(title: "확인", message: "현재 점겅을 위해 인증을 막아놨습니다 :)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
         print(" textField value Checking ---->\(alert.textFields?[0].text) ")
 
     }

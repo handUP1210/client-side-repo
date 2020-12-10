@@ -51,7 +51,6 @@
                                 <connections>
                                     <action selector="buttonToSignUpEmail:" destination="qD1-jH-kZg" eventType="touchUpInside" id="9iP-gd-LUi"/>
                                     <action selector="touchUpSignEmail:" destination="qD1-jH-kZg" eventType="touchUpInside" id="VbY-xF-HMs"/>
-                                    <segue destination="gzy-jO-KPT" kind="presentation" identifier="segueForSignUP" modalPresentationStyle="fullScreen" id="PvV-Nr-8xz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5h6-qg-NmF">
@@ -148,7 +147,7 @@
                                             <action selector="touchUpSignGoogle:" destination="qD1-jH-kZg" eventType="touchUpInside" id="FvU-Vo-Cjp"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appleLog" translatesAutoresizingMaskIntoConstraints="NO" id="UBg-5C-4bE">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google" translatesAutoresizingMaskIntoConstraints="NO" id="UBg-5C-4bE">
                                         <rect key="frame" x="10" y="2.5" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="1zI-Hs-DUM"/>
@@ -176,6 +175,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일을 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GIx-4W-bKK">
                                         <rect key="frame" x="15" y="0.0" width="314" height="40"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                         <connections>
@@ -250,6 +250,7 @@
                         <outlet property="viewToSignUpApple" destination="Y0A-MA-yR6" id="afz-G2-70w"/>
                         <outlet property="viewToSignUpEmailTextField" destination="uv4-cr-3OO" id="eHk-JY-fZt"/>
                         <segue destination="C7r-GA-Mob" kind="unwind" identifier="unwindForInitViewController" unwindAction="unwindForInitViewControllerWithSegue:" id="Owt-6u-qeM"/>
+                        <segue destination="gzy-jO-KPT" kind="presentation" identifier="segueForSignUP" modalPresentationStyle="fullScreen" id="KtR-2R-Ehb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0u-nM-B9V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -394,7 +395,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDL-Q1-rZm">
                                 <rect key="frame" x="35" y="640" width="344" height="46"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appleLog" translatesAutoresizingMaskIntoConstraints="NO" id="FQC-n2-bbi">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google" translatesAutoresizingMaskIntoConstraints="NO" id="FQC-n2-bbi">
                                         <rect key="frame" x="10" y="5.5" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="BkX-Ir-sPr"/>
@@ -536,7 +537,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7GT-pO-qok" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3393" y="307"/>
+            <point key="canvasLocation" x="3380" y="328"/>
         </scene>
         <!--SignUP Init Navigation View Controller-->
         <scene sceneID="Soc-Ft-BmR">
@@ -559,6 +560,7 @@
     <resources>
         <image name="appleLog" width="170.66667175292969" height="170.66667175292969"/>
         <image name="before" width="7.3333334922790527" height="13.333333015441895"/>
+        <image name="google" width="375" height="375"/>
         <image name="handUpLogo_sky" width="136" height="128.33332824707031"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
