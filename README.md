@@ -1,7 +1,5 @@
 # 2020 창업 동아리
-# 현직자 매칭 서비스
-대학생이 진로를 결정할 때 궁금한 것은 많은데 기존 서비스들을 취업을 위한 정보제공에 포커스를 맞추고 있다. 꼭 취업 관련 질문이 아닌
-해당 직무에 대한 사소한 질문에 현직자들이 답변해주고 질문자와 현직자가 만날 수 있게 도와주는 서비스를 만들고자 이번 프로젝트를 기획하게 되었다.
+# 지역 기반 현직자 매칭 서비스
 
 ## 1. 프로젝트 개요
 - 프로젝트 유형 : 2020 벤쳐창업 동아리
@@ -13,7 +11,7 @@
 ![](https://images.velog.io/images/cooo002/post/ac441935-9616-4de2-9be2-e946d60b5543/image.png)
 
 - REST API, AWS Cloud Computer를 활용한 현직자 매칭 기반 지식 공유 서비스
-- Naver Mobile Map API Ver 2.0를 활용한 질문자와 현직자 위치 기반 매칭 기능 제공
+- Naver Mobile Map API Ver 2.0를 활용한 질문자와 현직자 지역 기반 매칭 기능 제공
 
 
 ㄴ. 프로젝트 목표
@@ -38,30 +36,16 @@
 
 또한 위와 같은 실제 개발 작업은 iOS 애플리케이션 서비스를 구현하기 위해 xCode에서 swift를 활용하여 개발을 진행하였음.
 
-### * 서버
-
-![](https://images.velog.io/images/cooo002/post/964684d2-556f-4e08-93cb-5a3a15ffe0e8/image.png)
-
-로컬 컴퓨터에서 개발을 마친 뒤 Git을 이용하여 원격 저장소로 개발 결과를 저장하였으며, 이를 배포 자동화 프로그램을 이용하여 테스트한 뒤 AWS Codedeploy를 이용하여 로컬 컴퓨터와 동일하게 구축한 클라우드 컴퓨터를 통해 프로그램을 실행시키고 이를 외부 개발자와 사용자가 접근하도록 구현하였음.
-
 
 ㄴ. 프로젝트 참여인원 및 담당업무
 
-> ### 김재석(*본인)
+> ### 김재석
 * **프로젝트 활용기술**
 REST API, Swift, Firebase, Cashing, git, cocoaPods, xCode, Authentication, Google Trend Service, Hash Tag LAB, Figma,Auth, Json, GCD, DispatchQueue
 * **담당업무**
 -Figma를 활용한 와이어프레임 제작
 -Swift, Xcode, ios를 활용한 앱 제작 
 -UI/UX 최적화
-
-> ### 류원혁
-* **프로젝트 활용기술**
-AWS, OAuth, Http,
-Java, SpringBoot, Database, Json, Postman
-* **담당업무**
--AWS를 활용한 서버구축
-
 
 
 ㄷ. 세부수행 내역(담당업무)
